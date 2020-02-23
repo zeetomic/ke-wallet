@@ -86,11 +86,12 @@ import axios from 'axios';
 import Cookie from 'js-cookie';
 import VuePin from "@/components/VuePin";
 import {validate} from '@/plugins/Mixin/validate.js';
+import { message } from '@/plugins/Mixin/message.js';
 export default {
   components: {
     VuePin
   },
-  mixins: [validate],
+  mixins: [validate, message],
   asyncData ({req, res, redirect}) {
     let token;
     if (process.server) {
@@ -123,7 +124,6 @@ export default {
   data() {
     return {
       dialogScan: false,
-      dialogPIN: false,
       optionSend: true,
       textfield: false,
       showForm: true,
@@ -190,7 +190,12 @@ export default {
           amount: this.amount
         })
         .then(() => {
-          this.dialogPIN = false;
+          if(this.type === 'success') {
+            this.$toast.success(this.msg);
+          } else {
+            this.$toast.error(this.msg);
+          }
+          this.$router.push('/');          
         })
       }
       else {

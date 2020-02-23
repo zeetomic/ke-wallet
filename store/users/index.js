@@ -89,8 +89,14 @@ export const actions = {
       destination: data.destination,
       amount: data.amount
     }, config)
-    .then(() => {
-      this.$router.push('/');
+    .then((res) => {
+      if(res.data.message) {
+        commit('set_msg', res.data.message);
+        commit('set_type', 'success');
+      } else {
+        commit('set_msg', res.data.error.message);
+        commit('set_type', 'error');
+      }
     })
   },
 // Verify
