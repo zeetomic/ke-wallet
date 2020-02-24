@@ -77,7 +77,6 @@
       </v-card>
     </v-dialog>
     </v-container>
-    <notifications group="foo" position="top center"/>
   </div>
 </template>
 

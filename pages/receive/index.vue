@@ -8,7 +8,7 @@
           </v-col>
           <v-col cols="6" >
             <v-row class="d-flex justify-center">
-              <no-ssr>
+              <client-only>
               <vue-qr 
                 class="qr_code desktop"
                 :logoSrc="ke" 
@@ -22,7 +22,7 @@
                 :margin="10" 
                 :text="user_profile.wallet">
               </vue-qr>
-              </no-ssr>
+              </client-only>
             </v-row>
             <p class="wallet_key font-weight-medium subtitle-1">{{user_profile.wallet}}</p>
             <input type="text" id="myInput" v-model="user_profile.wallet" />

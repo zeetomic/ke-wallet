@@ -50,9 +50,9 @@
               <v-row class="d-flex justify-center">
                 <div style="color: #415593" class="font-weight-light">
                   <p>PIN Code</p>
-                  <no-ssr>
+                  <client-only>
                     <VuePin v-model="pin" :onlyNumber="true"/>
-                  </no-ssr>
+                  </client-only>
                   <div class="pt-10"></div>
                   <p class="error white--text">{{ this.pin_msg }}</p>
                 </div>
