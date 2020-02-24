@@ -37,11 +37,11 @@ export const actions = {
         Cookie.set('jwt', token);
         this.$router.push('/');
       } else if(res.data.message) {
-        commit('set_msg', res.data.message);
-        commit('set_type', 'error');
+        await commit('set_msg', res.data.message);
+        await commit('set_type', 'error');
       } else {
-        commit('set_msg', res.data.error.message);
-        commit('set_type', 'error');
+        await commit('set_msg', res.data.error.message);
+        await commit('set_type', 'error');
       }
     })
   },
@@ -66,13 +66,13 @@ export const actions = {
     await axios.post(process.env.KEUrl + '/wallet', {
       pin: data.pin
     }, config)
-    .then((res)=> {
+    .then(async (res)=> {
       if(res.data.message) {
-        commit('set_msg', res.data.message);
-        commit('set_type', 'success');
+        await commit('set_msg', res.data.message);
+        await commit('set_type', 'success');
       } else {
-        commit('set_msg', res.data.error.message);
-        commit('set_type', 'error');
+        await commit('set_msg', res.data.error.message);
+        await commit('set_type', 'error');
       }
     })
   }, 
@@ -89,13 +89,13 @@ export const actions = {
       destination: data.destination,
       amount: data.amount
     }, config)
-    .then((res) => {
+    .then(async (res) => {
       if(res.data.message) {
-        commit('set_msg', res.data.message);
-        commit('set_type', 'success');
+        await commit('set_msg', res.data.message);
+        await commit('set_type', 'success');
       } else {
-        commit('set_msg', res.data.error.message);
-        commit('set_type', 'error');
+        await commit('set_msg', res.data.error.message);
+        await commit('set_type', 'error');
       }
     })
   },
@@ -113,13 +113,13 @@ export const actions = {
       last_name: data.last_name,
       gender: data.gender
     }, config)
-    .then((res) => {
+    .then(async (res) => {
       if(res.data.message) {
-        commit('set_msg', res.data.message);
-        commit('set_type', 'success');
+        await commit('set_msg', res.data.message);
+        await commit('set_type', 'success');
       } else {
-        commit('set_msg', res.data.error.message);
-        commit('set_type', 'error');
+        await commit('set_msg', res.data.error.message);
+        await commit('set_type', 'error');
       }
     })
   },
@@ -135,13 +135,13 @@ export const actions = {
       current_password: data.current_password,
       new_password: data.new_password
     }, config)
-    .then((res) => {
+    .then(async(res) => {
       if(res.data.message) {
-        commit('set_msg', res.data.message);
-        commit('set_type', 'success');
+        await commit('set_msg', res.data.message);
+        await commit('set_type', 'success');
       } else {
-        commit('set_msg', res.data.error.message);
-        commit('set_type', 'error');
+        await commit('set_msg', res.data.error.message);
+        await commit('set_type', 'error');
       }
     })
   },
