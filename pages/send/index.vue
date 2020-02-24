@@ -58,7 +58,7 @@
                 </div>
               </v-row>
               <v-row class="d-flex justify-center">
-                <v-btn color="success" x-large style="width: 100%" @click="handleSend()">Send</v-btn>
+                <v-btn color="success" x-large style="width: 100%" :loading="loading" @click="handleSend()">Send</v-btn>
               </v-row>
             </div>
           </v-container>
@@ -88,6 +88,7 @@ import VuePin from "@/components/VuePin";
 import {validate} from '@/plugins/Mixin/validate.js';
 import { message } from '@/plugins/Mixin/message.js';
 export default {
+  middleware: ['auth'],
   components: {
     VuePin
   },
@@ -138,7 +139,8 @@ export default {
       destination: '',
       amount: '',
 
-      pin_msg: ''
+      pin_msg: '',
+      loading: false,
     }
   },
   methods: {
@@ -184,6 +186,7 @@ export default {
     },
     handleSend() {
       if(this.pin !== '') {
+        this.loading = true;
         this.$store.dispatch('users/handleSendPayment', {
           pin: this.pin,
           destination: this.destination,
@@ -195,10 +198,10 @@ export default {
           } else {
             this.$toast.error(this.msg);
           }
-          this.$router.push('/');          
+          this.$router.push('/');    
+          this.loading = false;    
         })
-      }
-      else {
+      } else {
         this.pin_msg = 'PIN is required';
       }
     }

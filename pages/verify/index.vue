@@ -34,7 +34,7 @@
           :rules="genderRule"
         >
         </v-select>
-        <v-btn color="primary" @click="handleVerify()">Verify</v-btn>
+        <v-btn color="primary" :loading="loading" @click="handleVerify()">Verify</v-btn>
       </v-form>
     </v-card>
   </div>
@@ -42,8 +42,10 @@
 
 <script>
 import { validate } from '@/plugins/Mixin/validate.js';
+import { message } from '@/plugins/Mixin/message.js';
 export default {
-  mixins: [validate],
+  middleware: ['auth'],
+  mixins: [validate, message],
   data() {
     return{
       first_name: '',
@@ -54,12 +56,15 @@ export default {
       items: [
         { label: 'Male', value: 'M' },
         { label: 'Female', value: 'F'}
-      ]
+      ],
+
+      loading: false,
     }
   },
   methods: {
     handleVerify() {
       if(this.$refs.form.validate()) {
+        this.loading = true,
         this.$store.dispatch('users/handleVerify', {
           first_name: this.first_name,
           mid_name: this.mid_name,
@@ -67,14 +72,16 @@ export default {
           gender: this.gender
         })
         .then(() => {
-          
+          if(this.type === 'success') {
+            this.$toast.success(this.msg);
+            this.$router.push('/setting');
+          } else {
+            this.$toast.error(this.msg);
+          }
+          this.loading = false;
         })
       }
     }
   }
 }
 </script>
-
-<style>
-
-</style>
