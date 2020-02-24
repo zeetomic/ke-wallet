@@ -7,7 +7,6 @@
           <v-row>
             <v-col class="d-flex justify-center">
               <v-progress-circular
-                v-if="!portfolio.error || portfolio.balance > 0"
                 v-for="item in portfolio.balances" :key="item.id"
                 :rotate="360"
                 :size="150"
