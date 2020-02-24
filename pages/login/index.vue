@@ -38,7 +38,6 @@
       <v-col cols="12" xs="12" sm="12" md="6" lg="6" xl="6">
       </v-col>
     </v-row>
-    <!-- <notifications group="foo" position="top center"/> -->
   </div>
 </template>
 

@@ -48,34 +48,6 @@
               <span>No data available</span>
             </template>
           </v-data-table>
-          <!-- <v-simple-table
-            v-if="!history.error"
-            :height="300"
-          >
-            <template v-slot:default>
-              <thead>
-                <tr>
-                  <th class="text-left" style="color: #79c4ff">Asset</th>
-                  <th class="text-left" style="color: #79c4ff">Amount</th>
-                  <th class="text-left" style="color: #79c4ff">Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr v-for="item in history" :key="item.id">
-                  <td class="d-flex align-center">
-                    <img src="../../assets/KE_logo_sm.svg" alt="ke_token" class="ke_token">
-                    <span>{{ `KE Token` }}</span>
-                  </td>
-                  <td>
-                    <span>{{ item.amount ? (item.amount/ Math.pow(10, 8)) : null }}</span> 
-                  </td>
-                  <td>
-                    Complete
-                  </td>
-                </tr>
-              </tbody>
-            </template>
-          </v-simple-table> -->
         </v-card>
       </v-col>
     </v-row>
@@ -86,6 +58,7 @@
 import Cookie from 'js-cookie';
 import axios from 'axios';
 export default {
+  middleware: ['auth'],
   asyncData ({req, res, error, redirect}) {
     let token;
     if (process.server) {

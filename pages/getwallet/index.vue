@@ -67,6 +67,7 @@
 import VuePin from "@/components/VuePin";
 import { message } from '@/plugins/Mixin/message.js';
 export default {
+  middleware: ['auth'],
   mixins: [message],
   components: {
     VuePin

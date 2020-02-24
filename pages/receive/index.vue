@@ -89,6 +89,7 @@
 import axios from 'axios';
 import Cookie from 'js-cookie';
 export default {
+  middleware: ['auth'],
   async asyncData({req, res, error, redirect}) {
     let token;
     if (process.server) {

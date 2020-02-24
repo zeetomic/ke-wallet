@@ -88,6 +88,7 @@ import { message } from "@/plugins/Mixin/message.js";
 import { validate } from '@/plugins/Mixin/validate.js';
 
 export default {
+  middleware: ['auth'],
   mixins: [message, validate],
   data() {
     return {
