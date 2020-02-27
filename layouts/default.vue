@@ -23,6 +23,9 @@ export default {
 </script>
 
 <style>
+.v-application {
+  font-family: 'Titillium Web'!important;
+}
 .detail {
   padding: 1rem;
 }

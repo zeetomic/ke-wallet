@@ -26,7 +26,7 @@
               v-model="valid"
               lazy-validation
             >
-              <div v-show="optionSend">
+              <div v-show="optionSend" class="mobile">
                 <v-btn @click="handleScan()" outlined color="#415593">Scan QR</v-btn>
                 <v-btn @click="handleType()" outlined color="#415593">Type Wallet</v-btn>
               </div>
@@ -34,6 +34,13 @@
               <v-text-field
                 label="Receiver Address"
                 v-show="textfield"
+                v-model="destination"
+                :rules="destinationRule"
+                outlined
+              ></v-text-field>
+              <v-text-field
+                class="desktop"
+                label="Receiver Address"
                 v-model="destination"
                 :rules="destinationRule"
                 outlined
@@ -243,6 +250,7 @@ export default {
   .container {
     padding: 1rem;
   }
+  .desktop { display: none; }
 }
 /* //Tablet */
 @media only screen and (min-width: 501px) and (max-width: 767px) {
@@ -253,6 +261,7 @@ export default {
     width: 350px;
     height: 200px;
   }
+  .desktop { display: none; }
 }
 /* //Normal */
 @media only screen and (min-width: 768px) and (max-width: 1199px){
@@ -263,10 +272,11 @@ export default {
     width: 350px;
     height: 220px;
   }
+  .mobile { display: none; }
 }
 /* Large monitor */
 @media only screen and (min-width: 1200px) and (max-width: 1919px) {
-       
+  .mobile { display: none; }
 }
 /* //Landscape */
 @media only screen and (max-height: 500px) {
@@ -274,6 +284,6 @@ export default {
 }
 /* Widescreen */
 @media only screen and (min-width: 1920px) {
-    
+  .mobile { display: none; }
 }
 </style>

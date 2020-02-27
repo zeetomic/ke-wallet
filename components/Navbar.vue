@@ -1,7 +1,7 @@
 <template>
   <nav class="Desktop">
     <v-app-bar
-      flat 
+      flat
       app 
       fixed 
       dense
@@ -15,8 +15,8 @@
             <img src="../assets/Logo_KE.svg" alt="logo_ke" style="width: 34px">
           </v-col>
           <v-col class="d-flex justify-center">
-            <span class="font-weight-thin ">KE</span>
-            <span class="font-weight-bold ">Wallet</span>
+            <span class="font-weight-thin">KE</span>
+            <span class="font-weight-bold">Wallet</span>
           </v-col>
         </v-row>
       </v-toolbar-title>
@@ -33,7 +33,7 @@
       permanent
       app
     >
-      <v-list shaped>
+      <v-list>
         <v-list-item-group>
           <div style="padding-top: 3rem"></div>
           <v-list-item to="/">
