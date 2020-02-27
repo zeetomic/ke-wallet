@@ -69,6 +69,8 @@ export default {
 }
 /* Widescreen */
 @media only screen and (min-width: 1920px) {
-    
+  .mobile {
+    display: none!important;
+  } 
 }
 </style>
