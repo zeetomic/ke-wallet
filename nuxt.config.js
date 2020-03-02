@@ -14,7 +14,8 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { href:"https://fonts.googleapis.com/css?family=Titillium+Web&display=swap", rel:"stylesheet" }
+      { href:"https://fonts.googleapis.com/css?family=Titillium+Web&display=swap", rel:"stylesheet" },
+      { href:"https://use.fontawesome.com/releases/v5.0.13/css/all.css", rel:"stylesheet" }
     ]
   },
   env: {

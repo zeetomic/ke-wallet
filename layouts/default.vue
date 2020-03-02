@@ -26,6 +26,9 @@ export default {
 .v-application {
   font-family: 'Titillium Web'!important;
 }
+.v-navigation-drawer {
+  background: #fcfcfc!important;
+}
 .detail {
   padding: 1rem;
 }

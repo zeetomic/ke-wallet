@@ -34,11 +34,11 @@
       app
     >
       <v-list>
-        <v-list-item-group>
+        <v-list-item-group color="#79c4ff">
           <div style="padding-top: 3rem"></div>
           <v-list-item to="/">
             <v-list-item-icon>
-              <img src="../assets/wallet_current.svg" alt=" wallet" style="width: 25px">
+              <v-icon>fas fa-wallet</v-icon>
             </v-list-item-icon>
             <v-list-item-content>
               <v-list-item-title class="font-weight-medium">Wallet</v-list-item-title>
@@ -46,8 +46,7 @@
           </v-list-item>
           <v-list-item to="/transaction">
             <v-list-item-icon>
-              <!-- <v-img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fgiphy.com%2Fstickers%2Fgimitheapp-payment-gimi-financial-superskills-JmUxDNgGUI1ShWVWSD&psig=AOvVaw32N1cLIlcPbEV5p8GsEUGp&ust=1582291362076000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOj1juqc4OcCFQAAAAAdAAAAABAD"></v-img> -->
-              <img src="../assets/giphy.gif" alt=" wallet" style="width: 25px">
+              <v-icon>fas fa-list</v-icon>
             </v-list-item-icon>
             <v-list-item-content>
               <v-list-item-title class="font-weight-medium">Transaction</v-list-item-title>
@@ -55,7 +54,7 @@
           </v-list-item>
           <v-list-item to="/send">
             <v-list-item-icon>
-              <img src="../assets/wallet_current.svg" alt=" wallet" style="width: 25px">
+              <v-icon>fas fa-arrow-up</v-icon>
             </v-list-item-icon>
             <v-list-item-content>
               <v-list-item-title class="font-weight-medium">Send</v-list-item-title>
@@ -63,7 +62,7 @@
           </v-list-item>
           <v-list-item to="receive">
             <v-list-item-icon>
-              <img src="../assets/wallet_current.svg" alt=" wallet" style="width: 25px">
+              <v-icon>fas fa-arrow-down</v-icon>
             </v-list-item-icon>
             <v-list-item-content>
               <v-list-item-title class="font-weight-medium">Receive</v-list-item-title>
@@ -71,7 +70,7 @@
           </v-list-item>
           <v-list-item to="setting">
             <v-list-item-icon>
-              <img src="../assets/setting_current.svg" alt=" wallet" style="width: 25px">
+              <v-icon>fas fa-cog</v-icon>
             </v-list-item-icon>
             <v-list-item-content>
               <v-list-item-title class="font-weight-medium">Setting</v-list-item-title>
