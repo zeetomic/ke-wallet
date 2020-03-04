@@ -90,7 +90,7 @@ export default {
         labels: this.portfolio.balances.map(item => item.issueTransaction.name),
         datasets: [
           {
-            backgroundColor: ['#'+Math.floor(Math.random()*16777215).toString(16), '#'+Math.floor(Math.random()*16777215).toString(16)],
+            backgroundColor: ['#92fb85'],
             data: this.portfolio.balances.map(asset => asset.balance)
           }
         ]
