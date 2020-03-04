@@ -123,6 +123,22 @@ export const actions = {
       }
     })
   },
+// Add Asset
+  async handleAddAsset({commit}, data) {
+    const token = Cookie.get('jwt');
+    const config = {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    }
+    await axios.post(process.env.apiUrl + '/addasset', {
+      asset_code: data.asset_code,
+      asset_issuer: data.asset_issuer
+    }, config)
+    .then(async(res) => {
+      await commit('set_msg', res.data.message)
+    })
+  },
 // Change Password
   async handleChangePassword({commit}, data) {
     const token = Cookie.get('jwt');

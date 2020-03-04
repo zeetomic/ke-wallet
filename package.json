@@ -15,6 +15,7 @@
     "@nuxtjs/toast": "^3.3.0",
     "@nuxtjs/vuetify": "^1.11.0",
     "axios": "^0.19.2",
+    "chart.js": "^2.9.3",
     "cookieparser": "^0.1.0",
     "js-cookie": "^2.2.1",
     "jspdf": "^1.5.3",
@@ -22,6 +23,7 @@
     "less-loader": "^5.0.0",
     "npm": "^6.13.7",
     "nuxt": "^2.0.0",
+    "vue-chartjs": "^3.5.0",
     "vue-qr": "^2.2.1",
     "vue-qrcode-reader": "^2.1.1"
   },

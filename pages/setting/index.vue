@@ -22,6 +22,13 @@
           <div class="setting_button">
             <v-row>
               <v-col class="d-flex justify-center">
+                <v-btn color="#415593" large @click="openAddAsset()">
+                  <span style="color: #fafafa">Add Asset</span>
+                </v-btn>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col class="d-flex justify-center">
                 <v-btn large outlined color="#415593" @click="openChangePassword()">Change Password</v-btn>
               </v-col>
             </v-row>
@@ -34,7 +41,7 @@
         </v-card>
       </v-col>
     </v-row>
-  <!-- Dialog -->
+  <!-- Dialog ChangePassword-->
     <v-dialog
       v-model="dialogChangePassword"
       width="90%"
@@ -69,12 +76,45 @@
               v-model="new_password1"
               :rules="new_passwordMatch"
             ></v-text-field>
-            <v-btn color="#415593" large style="width: 100%" @click="handleChangePassword()">
+            <v-btn color="#415593" large style="width: 100%" :loading="loading" @click="handleChangePassword()">
               <span style="color: #fafafa">Change Now</span>
             </v-btn>
           </v-form>
         </div>
       </v-card>
+    </v-dialog>
+    <!-- Dialog AddAsset -->
+     <v-dialog
+      v-model="dialogAddAsset"
+      width="90%"
+    >
+      <v-sheet>
+        <div class="container">
+          <span class="font-weight-medium headline">Add Asset</span>
+          <div style="padding: 3% 0"></div>
+          <v-form
+            ref="form1"
+            v-model="valid"
+            lazy-validation
+          >
+            <v-text-field
+              label="Asset Code"
+              outlined
+              v-model="asset_code"
+              :rules="asset_codeRule"
+            ></v-text-field>
+            <v-text-field
+              label="Asset Issuer"
+              outlined
+              v-model="asset_issuer"
+              :rules="asset_issuerRule"
+            ></v-text-field>
+            <v-btn color="#415593" large style="width: 100%" :loading="loading" @click="handleAddAsset()">
+              <span style="color: #fafafa">Add Asset</span>
+            </v-btn>
+          </v-form>
+        </div>
+      </v-sheet>
     </v-dialog>
     </v-container>
   </div>
@@ -92,10 +132,15 @@ export default {
   data() {
     return {
       dialogChangePassword: false,
+      dialogAddAsset: false,
+      loading: false,
 
       current_password: '',
       new_password: '',
-      new_password1: ''
+      new_password1: '',
+
+      asset_code: '',
+      asset_issuer: ''
     }
   },
   asyncData({req, res, error, redirect}) {
@@ -128,8 +173,27 @@ export default {
       })
   },
   methods: {
+    openAddAsset() {
+      this.dialogAddAsset = true;
+    },
     openChangePassword() {
       this.dialogChangePassword = true;
+    },
+    handleAddAsset() {
+      if(this.$refs.form1.validate()) {
+        this.loading = true;
+        this.$store.dispatch('users/handleAddAsset', {
+          asset_code: this.asset_code,
+          asset_issuer: this.asset_issuer
+        })
+        .then(() => {
+          this.$toast.success(this.msg);
+          this.dialogAddAsset = false;
+          this.loading = false;
+          this.asset_code = '';
+          this.asset_issuer = '';
+        })
+      }
     },
     handleChangePassword() {
       if(this.$refs.form.validate()) {

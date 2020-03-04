@@ -5,27 +5,13 @@
         <v-card class="detail">
           <h2 style="color: #415593">KE Wallet</h2>
           <v-row>
-            <v-col class="d-flex justify-center">
-              <v-progress-circular
-                v-for="item in portfolio.balances" :key="item.id"
-                :rotate="360"
-                :size="150"
-                :width="18"
-                :value="100"
-                color="#79c4ff"
-              >
-                $ {{ item.balance ? item.balance/Math.pow(10, 8) : 0 }}
-              </v-progress-circular>
-              <v-progress-circular
-                v-if="portfolio.error || portfolio.balances.length <= 0"
-                :rotate="360"
-                :size="150"
-                :width="18"
-                :value="100"
-                color="#79c4ff"
-              >
-                $ 0
-              </v-progress-circular>
+            <v-col class="d-flex justify-center" v-if="!portfolio.error">
+              <client-only>
+                <LineChart 
+                  :chart-data="datacollection"
+                  :styles="chart">
+                </LineChart>
+              </client-only>
             </v-col>
           </v-row>
         </v-card>
@@ -75,8 +61,42 @@
 <script>
 import axios from 'axios';
 import Cookie from 'js-cookie';
+import LineChart from '~/plugins/LineChart.js';
 export default {
   middleware: ['auth'],
+  components : {
+    LineChart
+  },
+  data() {
+    return {
+      datacollection: null,
+      width: 300,
+    }
+  },
+  mounted () {
+    if(!this.portfolio.error) this.fillData();
+  },
+  computed: {
+    chart () {
+      return {
+        width: `${this.width}px`,
+        position: 'relative'
+      }
+    }
+  },
+  methods: {
+    fillData () {
+      this.datacollection = {
+        labels: this.portfolio.balances.map(item => item.issueTransaction.name),
+        datasets: [
+          {
+            backgroundColor: ['#'+Math.floor(Math.random()*16777215).toString(16), '#'+Math.floor(Math.random()*16777215).toString(16)],
+            data: this.portfolio.balances.map(asset => asset.balance)
+          }
+        ]
+      }
+    },
+  },
   asyncData ({req, res, error, redirect}) {
     let token;
     if (process.server) {
