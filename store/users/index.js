@@ -32,7 +32,28 @@ export const actions = {
       if(res.data.token) {
         const token = await res.data.token;
         await commit('set_token', token);
+        await commit('set_type', 'success');
+        Cookie.set('jwt', token);
+        this.$router.push('/');
+      } else if(res.data.message) {
         await commit('set_msg', res.data.message);
+        await commit('set_type', 'error');
+      } else {
+        await commit('set_msg', res.data.error.message);
+        await commit('set_type', 'error');
+      }
+    })
+  },
+// Login Email
+  async handleLoginbyEmail({commit}, data) {
+    await axios.post(process.env.apiUrl + '/loginbyemail', {
+      email: data.email,
+      password: data.password
+    })
+    .then(async(res) => {
+      if(res.data.token) {
+        const token = await res.data.token;
+        await commit('set_token', token);
         await commit('set_type', 'success');
         Cookie.set('jwt', token);
         this.$router.push('/');
@@ -49,6 +70,16 @@ export const actions = {
   async handleRegister({commit}, data) {
     await axios.post(process.env.apiUrl + '/registerbyphone', {
       phone: data.phone,
+      password: data.password
+    })
+    .then(async(res) => {
+      await commit('set_msg', res.data.message);
+    })
+  },
+// Register Email
+  async handleRegisterEmail({commit}, data) {
+    await axios.post(process.env.apiUrl + '/registerbyemail', {
+      email: data.email,
       password: data.password
     })
     .then(async(res) => {
