@@ -123,8 +123,8 @@
 <script>
 import Cookie from 'js-cookie';
 import axios from 'axios';
-import { message } from "@/plugins/Mixin/message.js";
-import { validate } from '@/plugins/Mixin/validate.js';
+import { message } from "@/utils/Mixin/message.js";
+import { validate } from '@/utils/Mixin/validate.js';
 
 export default {
   middleware: ['auth'],

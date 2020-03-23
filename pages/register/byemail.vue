@@ -50,7 +50,7 @@
 
 <script>
 import { validateSignupEmail } from '~/utils/Mixin/validateSignUp.js';
-import { message } from '@/plugins/Mixin/message.js';
+import { message } from '@/utils/Mixin/message.js';
 
 export default {
   layout: 'login_register',
