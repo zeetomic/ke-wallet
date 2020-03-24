@@ -4,27 +4,27 @@
     grow
     class="mobile"
   >
-    <v-btn text color="#79c4ff" to="/">
+    <v-btn text color="#79c4ff" nuxt to="/">
       <span class="font-weight-thin">Wallet</span>
       <div style="padding-top: 5px"></div>
       <v-icon>fas fa-wallet</v-icon>
     </v-btn>
-    <v-btn text color="#79c4ff" to="/transaction">
+    <v-btn text color="#79c4ff" nuxt to="/transaction">
       <span class="font-weight-thin">Trasaction</span>
       <div style="padding-top: 5px"></div>
       <v-icon>fas fa-list</v-icon>
     </v-btn>
-    <v-btn text color="#79c4ff" to="/send">
+    <v-btn text color="#79c4ff" nuxt to="/send">
       <span class="font-weight-thin">Send</span>
       <div style="padding-top: 5px"></div>
       <v-icon>fas fa-arrow-up</v-icon>
     </v-btn>
-    <v-btn text color="#79c4ff" to="/receive">
+    <v-btn text color="#79c4ff" nuxt to="/receive">
       <span class="font-weight-thin">Receive</span>
       <div style="padding-top: 5px"></div>
       <v-icon>fas fa-arrow-down</v-icon>
     </v-btn>
-    <v-btn text color="#79c4ff" to="/setting">
+    <v-btn text color="#79c4ff" nuxt to="/setting">
       <span class="font-weight-thin">Setting</span>
       <div style="padding-top: 5px"></div>
       <v-icon>fas fa-cog</v-icon>

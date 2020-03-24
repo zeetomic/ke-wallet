@@ -121,14 +121,13 @@
 </template>
 
 <script>
-import Cookie from 'js-cookie';
-import axios from 'axios';
+import user_profile from '~/utils/user_profile.js';
 import { message } from "@/utils/Mixin/message.js";
-import { validate } from '@/utils/Mixin/validate.js';
+import { validateChangePass, validateAddAsset } from '~/utils/Mixin/validateSetting.js';
 
 export default {
   middleware: ['auth'],
-  mixins: [message, validate],
+  mixins: [message, validateChangePass, validateAddAsset],
   data() {
     return {
       dialogChangePassword: false,
@@ -143,35 +142,7 @@ export default {
       asset_issuer: ''
     }
   },
-  asyncData({req, res, error, redirect}) {
-    let token;
-    if (process.server) {
-      const jwtCookie = req.headers.cookie
-        .split(";")
-        .find(c => c.trim().startsWith("jwt="));
-      if (!jwtCookie) {
-        return;
-      }
-      token = jwtCookie.split("=")[1];
-    }
-    if (process.client) {
-      token = Cookie.get("jwt");
-    }
-    const config = {
-      headers: {
-        Authorization: "Bearer " + token
-      }
-    };
-    return axios.get(process.env.apiUrl + "/userprofile", config)
-      .then((res) => {
-        return { user_profile: res.data }
-      })
-      .catch((e) => {
-        redirect({
-          name: 'login'
-        })
-      })
-  },
+  asyncData: user_profile,
   methods: {
     openAddAsset() {
       this.dialogAddAsset = true;

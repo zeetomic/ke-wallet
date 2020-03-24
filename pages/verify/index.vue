@@ -41,11 +41,11 @@
 </template>
 
 <script>
-import { validate } from '@/utils/Mixin/validate.js';
+import { validateVerify } from '@/utils/Mixin/validateSetting.js';
 import { message } from '@/utils/Mixin/message.js';
 export default {
   middleware: ['auth'],
-  mixins: [validate, message],
+  mixins: [validateVerify, message],
   data() {
     return{
       first_name: '',

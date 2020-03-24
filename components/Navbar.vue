@@ -36,7 +36,7 @@
       <v-list>
         <v-list-item-group color="#79c4ff">
           <div style="padding-top: 3rem"></div>
-          <v-list-item to="/">
+          <v-list-item nuxt to="/">
             <v-list-item-icon>
               <v-icon>fas fa-wallet</v-icon>
             </v-list-item-icon>
@@ -44,7 +44,7 @@
               <v-list-item-title class="font-weight-medium">Wallet</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
-          <v-list-item to="/transaction">
+          <v-list-item nuxt to="/transaction">
             <v-list-item-icon>
               <v-icon>fas fa-list</v-icon>
             </v-list-item-icon>
@@ -52,7 +52,7 @@
               <v-list-item-title class="font-weight-medium">Transaction</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
-          <v-list-item to="/send">
+          <v-list-item nuxt to="/send">
             <v-list-item-icon>
               <v-icon>fas fa-arrow-up</v-icon>
             </v-list-item-icon>
@@ -60,7 +60,7 @@
               <v-list-item-title class="font-weight-medium">Send</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
-          <v-list-item to="receive">
+          <v-list-item nuxt to="receive">
             <v-list-item-icon>
               <v-icon>fas fa-arrow-down</v-icon>
             </v-list-item-icon>
@@ -68,7 +68,7 @@
               <v-list-item-title class="font-weight-medium">Receive</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
-          <v-list-item to="setting">
+          <v-list-item nuxt to="setting">
             <v-list-item-icon>
               <v-icon>fas fa-cog</v-icon>
             </v-list-item-icon>

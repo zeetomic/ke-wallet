@@ -1,7 +1,7 @@
 import axios from 'axios';
 import Cookie from 'js-cookie';
 
-export default function asyncData({req, redirect}) {
+export default function asyncData ({req, redirect}) {
   let token;
   if (process.server) {
     const jwtCookie = req.headers.cookie
@@ -20,9 +20,9 @@ export default function asyncData({req, redirect}) {
       Authorization: "Bearer " + token
     }
   };
-  return axios.get(process.env.apiUrl + "/userprofile", config)
+  return axios.get(process.env.KEUrl + "/portforlio", config)
     .then((res) => {
-      return { user_profile: res.data }
+      return { portfolio: res.data }
     })
     .catch((e) => {
       redirect({

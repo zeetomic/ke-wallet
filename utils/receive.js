@@ -1,7 +1,7 @@
 import axios from 'axios';
 import Cookie from 'js-cookie';
 
-export default function asyncData({req, redirect}) {
+export default async function asyncData({req, redirect}) {
   let token;
   if (process.server) {
     const jwtCookie = req.headers.cookie
@@ -20,13 +20,15 @@ export default function asyncData({req, redirect}) {
       Authorization: "Bearer " + token
     }
   };
-  return axios.get(process.env.apiUrl + "/userprofile", config)
-    .then((res) => {
-      return { user_profile: res.data }
-    })
-    .catch((e) => {
-      redirect({
-        name: 'login'
-      })
-    })
+  try {
+    let user_profile = await axios.get(process.env.apiUrl + "/userprofile", config)
+    let history = await axios.get(process.env.KEUrl + "/trx-history", config)
+    return {
+      user_profile: user_profile.data,
+      history: history.data
+    }
+  }
+  catch(e) {
+    redirect('/login');
+  }
 }
