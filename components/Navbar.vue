@@ -102,7 +102,6 @@ export default {
 </script>
 
 <style scoped>
-  @import url('https://use.fontawesome.com/releases/v5.0.13/css/all.css');
   @media only screen and (max-width: 500px) {
     .Desktop {
       display: none!important;
