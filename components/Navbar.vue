@@ -7,7 +7,7 @@
       dense
     >
       <v-btn text @click="handleDrawer()" @click.stop="mini = !mini">
-        <v-icon>mdi-menu</v-icon>
+        <v-icon>fas fa-bars</v-icon>
       </v-btn>
       <v-toolbar-title class="text-uppercase grey--text">
         <v-row>
@@ -23,7 +23,7 @@
       <v-spacer></v-spacer>
       <v-btn text color="grey" @click="handleSignout()">
         <span>SignOut</span>
-        <v-icon right>mdi-exit-to-app</v-icon>
+        <v-icon right>fas fa-sign-out-alt</v-icon>
       </v-btn>
     </v-app-bar>
 
