@@ -49,7 +49,7 @@ export default {
     defaultAssets: {icons: 'fa'},
     treeShake: true,
     theme: {
-      dark: false,
+      light: true,
     }
   },
   build: {

@@ -113,20 +113,4 @@ export default {
       display: none!important;
     }
   }
-  /* //Normal */
-  @media only screen and (min-width: 768px) and (max-width: 1199px){
-    
-  }
-  /* Large monitor */
-  @media only screen and (min-width: 1200px) and (max-width: 1919px) {
-        
-  }
-  /* //Landscape */
-  @media only screen and (max-height: 500px) {
-      
-  }
-  /* Widescreen */
-  @media only screen and (min-width: 1920px) {
-      
-  }
 </style>
