@@ -23,9 +23,6 @@ export default {
 </script>
 
 <style>
-.v-application {
-  font-family: 'Titillium Web', 'Roboto'!important;
-}
 .v-navigation-drawer {
   background: #fcfcfc!important;
 }
