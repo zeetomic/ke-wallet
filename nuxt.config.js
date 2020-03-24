@@ -9,7 +9,6 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { href:'https://use.fontawesome.com/releases/v5.0.13/css/all.css', rel: 'stylesheet'}
     ]
   },
   env: {
@@ -47,6 +46,7 @@ export default {
   },
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
+    defaultAssets: {icons: 'fa'},
     treeShake: true,
     theme: {
       dark: false,
