@@ -32,24 +32,9 @@
   </v-bottom-navigation>
 </template>
 
-<script>
-export default {
-
-}
-</script>
-
 <style scoped>
 .v-item-group.v-bottom-navigation .v-btn {
   min-width: 50px;
-}
-/* // RESPONSIVE */
-/* //SmartPhone */
-@media only screen and (max-width: 500px) {
-    
-}
-/* //Tablet */
-@media only screen and (min-width: 501px) and (max-width: 767px) {
-    
 }
 /* //Normal */
 @media only screen and (min-width: 768px) and (max-width: 1199px){
@@ -62,10 +47,6 @@ export default {
   .mobile {
     display: none!important;
   } 
-}
-/* //Landscape */
-@media only screen and (max-height: 500px) {
-    
 }
 /* Widescreen */
 @media only screen and (min-width: 1920px) {

@@ -3,7 +3,7 @@
     <v-row>
       <v-col cols="12" xs="12" sm="12" md="6" lg="6" xl="6" class="pa-6">
         <span class="font-weight-bold display-1" style="color: #415593">Login To KE Wallet</span>
-        <div style="padding: 1.6rem"></div>
+        <div class="pt-10"></div>
         <v-form 
           ref="form"
           v-model="valid"

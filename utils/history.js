@@ -1,7 +1,6 @@
 import Cookie from 'js-cookie';
-import axios from 'axios';
 
-export default function asyncData ({req, redirect}) {
+export default function asyncData ({req, $axios ,redirect}) {
   let token;
   if (process.server) {
     const jwtCookie = req.headers.cookie
@@ -20,7 +19,7 @@ export default function asyncData ({req, redirect}) {
       Authorization: "Bearer " + token
     }
   };
-  return axios.get(process.env.KEUrl + "/trx-history", config)
+  return $axios.get(process.env.KEUrl + "/trx-history", config)
     .then((res) => {
       return { history: res.data }
     })

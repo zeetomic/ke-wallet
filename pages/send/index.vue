@@ -14,7 +14,7 @@
       <v-col cols="12" xs="12" sm="12" md="6" lg="6" xl="6">
         <v-card class="pa-4">
           <h2 style="color: #415593">Send Token</h2>
-          <br>
+          <br />
           <div v-if="portfolio.error">
             <h4 style="color: red">{{ portfolio.error.message }}</h4>
             <br>
@@ -29,7 +29,7 @@
                 <v-btn @click="handleScan()" outlined color="#415593">Scan QR</v-btn>
                 <v-btn @click="handleType()" outlined color="#415593">Type Wallet</v-btn>
               </div>
-              <div style="padding-top: 1rem"></div>
+              <div class="pt-4"></div>
               <v-text-field
                 label="Receiver Address"
                 v-show="textfield"
@@ -246,10 +246,6 @@ export default {
 /* Large monitor */
 @media only screen and (min-width: 1200px) and (max-width: 1919px) {
   .mobile { display: none; }
-}
-/* //Landscape */
-@media only screen and (max-height: 500px) {
-    
 }
 /* Widescreen */
 @media only screen and (min-width: 1920px) {

@@ -178,7 +178,13 @@ export default {
     width: 350px;
     height: 200px;
   }
- 
+  .qr_code {
+    padding-top: 1%;
+  }
+  .wallet_key{
+    font-size: 12px!important;
+    line-height: 16px;
+  }
 }
 /* Normal */
 @media only screen and (min-width: 768px) and (max-width: 1199px){
@@ -188,6 +194,13 @@ export default {
   .ke_card {
     width: 350px;
     height: 200px;
+  }
+  .qr_code {
+    padding-top: 1%;
+  }
+  .wallet_key{
+    font-size: 12px!important;
+    line-height: 16px;
   }
 }
 /* Large monitor */

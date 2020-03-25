@@ -1,4 +1,3 @@
-import axios from 'axios';
 import Cookie from 'js-cookie';
 
 export const state = () => ({
@@ -24,7 +23,7 @@ export const mutations = {
 export const actions = {
 // LogIn
   async handleLogin({commit}, data) {
-    await axios.post(process.env.apiUrl + '/loginbyphone', {
+    await this.$axios.post(process.env.apiUrl + '/loginbyphone', {
       phone: data.phone,
       password: data.password
     })
@@ -46,7 +45,7 @@ export const actions = {
   },
 // Login Email
   async handleLoginbyEmail({commit}, data) {
-    await axios.post(process.env.apiUrl + '/loginbyemail', {
+    await this.$axios.post(process.env.apiUrl + '/loginbyemail', {
       email: data.email,
       password: data.password
     })
@@ -68,7 +67,7 @@ export const actions = {
   },
 // Register
   async handleRegister({commit}, data) {
-    await axios.post(process.env.apiUrl + '/registerbyphone', {
+    await this.$axios.post(process.env.apiUrl + '/registerbyphone', {
       phone: data.phone,
       password: data.password
     })
@@ -78,7 +77,7 @@ export const actions = {
   },
 // Register Email
   async handleRegisterEmail({commit}, data) {
-    await axios.post(process.env.apiUrl + '/registerbyemail', {
+    await this.$axios.post(process.env.apiUrl + '/registerbyemail', {
       email: data.email,
       password: data.password
     })
@@ -94,7 +93,7 @@ export const actions = {
         Authorization: 'Bearer ' + token
       }
     }
-    await axios.post(process.env.KEUrl + '/wallet', {
+    await this.$axios.post(process.env.KEUrl + '/wallet', {
       pin: data.pin
     }, config)
     .then(async (res)=> {
@@ -115,7 +114,7 @@ export const actions = {
         Authorization: 'Bearer ' + token
       }
     }
-    await axios.post(process.env.KEUrl + '/sendpayment', {
+    await this.$axios.post(process.env.KEUrl + '/sendpayment', {
       pin: data.pin,
       destination: data.destination,
       amount: data.amount
@@ -138,7 +137,7 @@ export const actions = {
         Authorization: 'Bearer ' + token
       }
     }
-    await axios.post(process.env.apiUrl + '/userprofile', {
+    await this.$axios.post(process.env.apiUrl + '/userprofile', {
       first_name: data.first_name,
       mid_name: data.mid_name,
       last_name: data.last_name,
@@ -162,7 +161,7 @@ export const actions = {
         Authorization: 'Bearer ' + token
       }
     }
-    await axios.post(process.env.apiUrl + '/addasset', {
+    await this.$axios.post(process.env.apiUrl + '/addasset', {
       asset_code: data.asset_code,
       asset_issuer: data.asset_issuer
     }, config)
@@ -178,7 +177,7 @@ export const actions = {
         Authorization: 'Bearer ' + token
       }
     }
-    await axios.post(process.env.apiUrl + '/change-password', {
+    await this.$axios.post(process.env.apiUrl + '/change-password', {
       current_password: data.current_password,
       new_password: data.new_password
     }, config)

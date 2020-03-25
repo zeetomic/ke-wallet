@@ -29,6 +29,7 @@ export default {
   modules: [
     '@nuxtjs/pwa',
     '@nuxtjs/toast',
+    '@nuxtjs/axios'
   ],
   toast: {
     position: 'top-center',

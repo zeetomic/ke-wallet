@@ -1,45 +1,41 @@
 <template>
   <v-container>
   <h2 style="color: #415593">Setting</h2>
-  <v-row>
-    <v-col>
-      <v-card class="pa-4">
-        <br>
-        <div class="d-flex flex-column">
-          <img src="../../assets/Logo_KE.svg" alt="profile">
-          <div class="pt-5"></div>
-          <span style="text-align: center; color: #415593" class="font-weight-thin display-1" v-if="user_profile.first_name || user_profile.mid_name || user_profile.last_name">
-            {{ user_profile.first_name + ' ' + user_profile.mid_name + ' ' + user_profile.last_name }}
-          </span>
-          <div v-else style="text-align: center">
-            <span style="color: #415593" class="font-weight-thin headline">Please Verify Your Account</span>
-            <v-row class="d-flex justify-center pt-6">
-              <v-btn to="/verify" color="primary">Verify Account</v-btn>
-            </v-row>
-          </div>
-        </div>
-        <div class="setting_button">
-          <v-row>
-            <v-col class="d-flex justify-center">
-              <v-btn color="#415593" large @click="openAddAsset()">
-                <span style="color: #fafafa">Add Asset</span>
-              </v-btn>
-            </v-col>
-          </v-row>
-          <v-row>
-            <v-col class="d-flex justify-center">
-              <v-btn large outlined color="#415593" @click="openChangePassword()">Change Password</v-btn>
-            </v-col>
-          </v-row>
-          <v-row>
-            <v-col class="d-flex justify-center">
-              <v-btn large outlined color="#415593" @click="handleSignOut()">Sign Out</v-btn>
-            </v-col>
-          </v-row>            
-        </div>
-      </v-card>
-    </v-col>
-  </v-row>
+  <div class="pt-4"></div>
+  <v-card class="pa-4">
+    <div class="d-flex flex-column">
+      <img src="../../assets/Logo_KE.svg" alt="profile">
+      <div class="pt-5"></div>
+      <span style="text-align: center; color: #415593" class="font-weight-thin display-1" v-if="user_profile.first_name || user_profile.mid_name || user_profile.last_name">
+        {{ user_profile.first_name + ' ' + user_profile.mid_name + ' ' + user_profile.last_name }}
+      </span>
+      <div v-else style="text-align: center">
+        <span style="color: #415593" class="font-weight-thin headline">Please Verify Your Account</span>
+        <v-row class="d-flex justify-center pt-6">
+          <v-btn to="/verify" color="primary">Verify Account</v-btn>
+        </v-row>
+      </div>
+    </div>
+    <div class="setting_button">
+      <v-row>
+        <v-col class="d-flex justify-center">
+          <v-btn color="#415593" large @click="openAddAsset()">
+            <span style="color: #fafafa">Add Asset</span>
+          </v-btn>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col class="d-flex justify-center">
+          <v-btn large outlined color="#415593" @click="openChangePassword()">Change Password</v-btn>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col class="d-flex justify-center">
+          <v-btn large outlined color="#415593" @click="handleSignOut()">Sign Out</v-btn>
+        </v-col>
+      </v-row>            
+    </div>
+  </v-card>
 <!-- Dialog ChangePassword-->
   <v-dialog
     v-model="dialogChangePassword"
@@ -207,34 +203,5 @@ export default {
 }
 .container {
   padding: 2.6rem 10%;
-}
-/* // RESPONSIVE */
-/* //SmartPhone */
-@media only screen and (max-width: 500px) {
-  .v-card {
-    box-shadow: 0px 0px 0px 0px;
-  }
-}
-/* //Tablet */
-@media only screen and (min-width: 501px) and (max-width: 767px) {
-  .v-card {
-    box-shadow: 0px 0px 0px 0px;
-  }
-}
-/* //Normal */
-@media only screen and (min-width: 768px) and (max-width: 1199px){
-    
-}
-/* Large monitor */
-@media only screen and (min-width: 1200px) and (max-width: 1919px) {
-       
-}
-/* //Landscape */
-@media only screen and (max-height: 500px) {
-    
-}
-/* Widescreen */
-@media only screen and (min-width: 1920px) {
-    
 }
 </style>

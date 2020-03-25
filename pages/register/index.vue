@@ -44,7 +44,6 @@
       <v-col cols="12" xs="12" sm="12" md="6" lg="6" xl="6">
       </v-col>
     </v-row>
-    <notifications group="foo" position="top center"/>
   </div>
 </template>
 
@@ -87,12 +86,5 @@ export default {
     width: 100%;
     min-height: 100vh;
     padding: 15% 0; 
-  }
-  .ke_logo {
-    /* width: 300px; */
-    background: url("~assets/Logo_KE.svg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    position: relative;
   }
 </style>

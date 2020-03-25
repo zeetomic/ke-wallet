@@ -1,21 +1,19 @@
 <template>
   <div>
     <h2 style="color: #415593">Get Wallet</h2>
-    <br>
+    <br />
     <v-card class="pa-6">
       <span class="font-weight-bold headline" style="color: #415593">Please Input PIN Code</span>
-      <v-row>
-        <v-col class="d-flex justify-center pt-10">
-          <div style="color: #415593" class="font-weight-light">
-            <p>PIN Code</p>
-            <VuePin v-model="pin" :onlyNumber="true"/>
-            <div class="pt-10"></div>
-            <p>Confirm PIN Code</p>
-            <VuePin v-model="pin1" :onlyNumber="true"/>
-          </div>
-        </v-col>
+      <v-row class="d-flex justify-center pt-10">
+        <div style="color: #415593" class="font-weight-light">
+          <p>PIN Code</p>
+          <VuePin v-model="pin" :onlyNumber="true"/>
+          <div class="pt-10"></div>
+          <p>Confirm PIN Code</p>
+          <VuePin v-model="pin1" :onlyNumber="true"/>
+        </div>
       </v-row>
-      <br>
+      <br />
       <span class="error white--text d-flex justify-center">{{ this.pin_msg }}</span>
       <v-row class="d-flex justify-center pt-10">
         <v-btn color="success" @click="handleGetWallet()">Get Wallet</v-btn>
@@ -84,7 +82,7 @@ export default {
   },
   methods: {
     handleGetWallet() {
-      if( this.pin === '' || this.pin1 === '') return this.pin_msg = 'PIN is required';
+      if(this.pin === '' || this.pin1 === '') return this.pin_msg = 'PIN is required';
       if(this.pin !== this.pin1) return this.pin_msg = 'PIN does not match!!';
       else {
         this.$store.dispatch('users/handleGetWallet', {
@@ -116,7 +114,3 @@ export default {
   }
 }
 </script>
-
-<style>
-
-</style>
