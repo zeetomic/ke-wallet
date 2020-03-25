@@ -1,7 +1,7 @@
 <template>
   <v-row>
     <v-col>
-      <v-card class="detail">
+      <v-card class="pa-4">
         <h2 style="color: #415593">Transaction</h2>
         <v-tabs color="#415593" height="40">
           <v-tab>All</v-tab>
@@ -10,7 +10,7 @@
         </v-tabs>
         <div v-if="history.error">
           <h4 style="color: red" class="pt-6">{{ history.error.message }}</h4>
-          <br>
+          <br />
           <v-btn rounded color="pink darken-3 white--text" to="/getwallet">Get Wallet</v-btn>
         </div>
         <v-data-table

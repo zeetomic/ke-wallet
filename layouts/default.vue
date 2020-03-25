@@ -23,39 +23,16 @@ export default {
 </script>
 
 <style>
-.v-navigation-drawer {
-  background: #fcfcfc!important;
-}
-.detail {
-  padding: 1rem;
-}
-/* // RESPONSIVE */
-/* //SmartPhone */
+/* SmartPhone */
 @media only screen and (max-width: 500px) {
   .v-content {
     padding: 0!important;
   }
 }
-/* //Tablet */
+/* Tablet */
 @media only screen and (min-width: 501px) and (max-width: 767px) {
   .v-content {
     padding: 0!important;
   } 
-}
-/* //Normal */
-@media only screen and (min-width: 768px) and (max-width: 1199px){
-    
-}
-/* Large monitor */
-@media only screen and (min-width: 1200px) and (max-width: 1919px) {
-       
-}
-/* //Landscape */
-@media only screen and (max-height: 500px) {
-    
-}
-/* Widescreen */
-@media only screen and (min-width: 1920px) {
-    
 }
 </style>

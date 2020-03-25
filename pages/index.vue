@@ -1,26 +1,24 @@
 <template>
   <v-row>
     <v-col cols="12" xs="12" sm="12" md="6" lg="6" xl="6">
-      <v-card class="detail">
+      <v-card class="pa-4">
         <h2 style="color: #415593">KE Wallet</h2>
-        <v-row>
-          <v-col class="d-flex justify-center" v-if="!portfolio.error">
-            <client-only>
-              <LineChart 
-                :chart-data="datacollection"
-                :styles="chart">
-              </LineChart>
-            </client-only>
-          </v-col>
+        <v-row class="d-flex justify-center" v-if="!portfolio.error">
+          <client-only>
+            <LineChart 
+              :chart-data="datacollection"
+              :styles="chart">
+            </LineChart>
+          </client-only>
         </v-row>
       </v-card>
     </v-col>
     <v-col cols="12" xs="12" sm="12" md="6" lg="6" xl="6">
-      <v-card class="detail">
+      <v-card class="pa-4">
         <h2 style="color: #415593">My Porfolio</h2>
         <div v-if="portfolio.error" style="padding-top: 1rem">
           <h4 style="color: red">{{ portfolio.error.message }}</h4>
-          <br>
+          <br />
           <v-btn rounded color="pink darken-3 white--text" to="/getwallet">Get Wallet</v-btn>
         </div>
         <v-data-table
@@ -71,11 +69,11 @@ export default {
       width: 300,
     }
   },
-  mounted () {
+  mounted() {
     if(!this.portfolio.error) this.fillData();
   },
   computed: {
-    chart () {
+    chart() {
       return {
         width: `${this.width}px`,
         position: 'relative'

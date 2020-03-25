@@ -12,7 +12,7 @@
         </v-row>
       </v-col>
       <v-col cols="12" xs="12" sm="12" md="6" lg="6" xl="6">
-        <v-card class="detail">
+        <v-card class="pa-4">
           <h2 style="color: #415593">Send Token</h2>
           <br>
           <div v-if="portfolio.error">
@@ -211,7 +211,6 @@ export default {
   position: relative;
   border-radius: 15px;
 }
-/* // RESPONSIVE */
 /* //SmartPhone */
 @media only screen and (max-width: 500px) {
   .balance h1 {
